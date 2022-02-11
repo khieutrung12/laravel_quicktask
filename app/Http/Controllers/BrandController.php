@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\Brand\StoreRequest;
+use App\Http\Requests\Brand\UpdateRequest;
 
 class BrandController extends Controller
 {
@@ -37,16 +39,8 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $rules = [
-            'brand_name' => 'required|min:3',
-        ];
-        $messages = [
-            'brand_name.required' => 'Vui lòng nhập ô này',
-            'brand_name.min' => 'Nhập ít nhất 3 kí tự',
-        ];
-        $request->validate($rules, $messages);
         $brand_name = $request->brand_name;
         $brand = Brand::create([
             'brand_name' => $brand_name,
@@ -87,16 +81,8 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        $rules = [
-            'brand_name' => 'required|min:3',
-        ];
-        $messages = [
-            'brand_name.required' => 'Vui lòng nhập ô này',
-            'brand_name.min' => 'Nhập ít nhất 3 kí tự',
-        ];
-        $request->validate($rules, $messages);
         $brand_name = $request->brand_name;
         Brand::where('id', $id)->update(['brand_name' => $brand_name]);
         Session::put('mess', 'Cập nhật thương hiệu sản phẩm thành công');
