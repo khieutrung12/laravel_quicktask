@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AdminController@index');
+Route::resource('/products', 'ProductController');
+Route::resource('/brands', 'BrandController');
