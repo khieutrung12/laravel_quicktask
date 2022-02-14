@@ -3,7 +3,7 @@
     <div class="table-agile-info">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Liệt kê sản phẩm
+                {{ __('messages.allProduct') }}
             </div>
             <div class="table-responsive">
                 @php
@@ -20,13 +20,13 @@
                 <table class="table table-striped b-t b-light">
                     <thead>
                         <tr>
-                            <th style="width:20px;">
+                            <th class="width-css">
                             </th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá sản phẩm</th>
-                            <th>Hình ảnh sản phẩm</th>
-                            <th>Thương hiệu sản phẩm</th>
-                            <th style="width:30px;"></th>
+                            <th> {{ __('messages.productName') }}</th>
+                            <th> {{ __('messages.productPrice') }}</th>
+                            <th> {{ __('messages.productImage') }}</th>
+                            <th> {{ __('messages.brand') }}</th>
+                            <th class="width-css"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>
-                                    <p style="font-weight:bold;font-size:16px">
+                                    <p class="stt">
                                         {{ $pro->product_name }}
                                     </p>
                                 </td>
@@ -55,9 +55,8 @@
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
-                                            style="border:none;background:none;"
-                                            onclick="return confirm('Bạn có chắc là muốn xóa thương hiệu này ko?')">
+                                        <button type="submit" class="delete-icon"
+                                            onclick="return confirm('{{ __('messages.confirmDeleteProduct') }}')">
                                             <i
                                                 class="fa fa-times text-danger text"></i>
                                         </button>

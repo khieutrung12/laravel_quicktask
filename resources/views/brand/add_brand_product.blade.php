@@ -4,11 +4,11 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Thêm thương hiệu sản phẩm
+                    {{ __('messages.addBrand') }}
                 </header>
                 @if ($errors->any())
                     <div class="alert alert-danger text-center">
-                        Vui lòng kiểm tra lại dữ liệu
+                        {{ __('messages.error') }}
                     </div>
                 @endif
                 <div class="panel-body">
@@ -20,7 +20,8 @@
                                 $mess = Session::get('mess');
                             @endphp
                             @if ($mess)
-                                <span class="text-alert">{{ $mess }}
+                                <span
+                                    class="text-alert">{{ __('messages.addSuccess', ['name' => __('messages.brand')]) }}
                                 </span>
                                 <br><br>
                                 @php
@@ -29,18 +30,20 @@
                             @endif
                             <div class="form-group">
                                 <label for="exampleInputEmail1">
-                                    Tên thương hiệu
+                                    {{ __('messages.brandName') }}
                                 </label>
                                 <input type="text" name="brand_name"
                                     class="form-control" id="exampleInputEmail1"
                                     value="{{ old('brand_name') }}"
                                     placeholder="Tên thương hiệu...">
                                 @error('brand_name')
-                                    <span style="color:red;">{{ $message }}</span>
+                                    <span class="text-alert">
+                                        {{ __($message, ['name' => __('messages.brandName')]) }}</span>
                                 @enderror
                             </div>
                             <button type="submit" name="add_category_product"
-                                class="btn btn-info">Thêm thương hiệu</button>
+                                class="btn btn-info">
+                                {{ __('messages.add') }}</button>
                         </form>
                     </div>
                 </div>

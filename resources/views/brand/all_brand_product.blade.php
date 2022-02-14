@@ -3,7 +3,7 @@
     <div class="table-agile-info">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Liệt kê thương hiệu sản phẩm
+                {{ __('messages.allBrand') }}
             </div>
             <div class="table-responsive">
                 @php
@@ -20,10 +20,10 @@
                 <table class="table table-striped b-t b-light">
                     <thead>
                         <tr>
-                            <th style="width:20px;">
+                            <th class="width-css">
                             </th>
-                            <th>Tên thương hiệu</th>
-                            <th style="width:30px;"></th>
+                            <th>{{ __('messages.brandName') }}</th>
+                            <th class="width-css"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>
-                                    <p style="font-weight:bold;font-size:16px">
+                                    <p class="stt">
                                         {{ $brand_pro->brand_name }}</p>
                                 </td>
                                 <td>
@@ -48,9 +48,8 @@
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
-                                            style="border:none;background:none;"
-                                            onclick="return confirm('Bạn có chắc là muốn xóa thương hiệu này ko?')">
+                                        <button type="submit" class="delete-icon"
+                                            onclick="return confirm('{{ __('messages.confirmDeleteBrand') }}')">
                                             <i
                                                 class="fa fa-times text-danger text"></i>
                                         </button>
