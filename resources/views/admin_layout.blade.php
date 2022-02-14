@@ -68,8 +68,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
                     <li>
-                        <input type="text" class="form-control search"
-                            placeholder=" Search">
+                        <a
+                            href="{{ route('lang', ['locale' => 'en']) }}">En</a>
+
+                    </li>
+                    <li>
+                        <a
+                            href="{{ route('lang', ['locale' => 'vi']) }}">Vi</a>
                     </li>
                     <!-- user login dropdown start-->
                     <li class="dropdown">
@@ -82,14 +87,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </span>
                             <b class="caret"></b>
                         </a>
+
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i
-                                        class=" fa fa-suitcase"></i>Profile</a>
+                                        class=" fa fa-suitcase"></i>{{ __('messages.profile') }}</a>
                             </li>
                             <li><a href="#"><i class="fa fa-cog"></i>
-                                    Settings</a></li>
-                            <li><a href=""><i class="fa fa-key"></i>Đăng
-                                    xuất</a></li>
+                                    {{ __('messages.settings') }}</a></li>
+                            <li><a href=""><i
+                                        class="fa fa-key"></i>{{ __('messages.logout') }}
+                                </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -105,31 +112,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a class="active" href="">
                                 <i class="fa fa-dashboard"></i>
-                                <span>Tổng quan</span>
+                                <span>{{ __('messages.dashboard') }}</span>
                             </a>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>Thương hiệu sản phẩm</span>
+                                <span>{{ __('messages.brand') }}</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{ route('brands.create') }}">Thêm
-                                        hiệu sản phẩm</a></li>
-                                <li><a href="{{ route('brands.index') }}">Liệt
-                                        kê thương hiệu sản phẩm</a></li>
+                                <li><a
+                                        href="{{ route('brands.create') }}">{{ __('messages.addBrand') }}</a>
+                                </li>
+                                <li><a
+                                        href="{{ route('brands.index') }}">{{ __('messages.allBrand') }}</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>Sản phẩm</span>
+                                <span>{{ __('messages.product') }}</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{ route('products.create') }}">Thêm
-                                        sản phẩm</a></li>
-                                <li><a href="{{ route('products.index') }}">Liệt
-                                        kê sản phẩm</a></li>
+                                <li><a
+                                        href="{{ route('products.create') }}">{{ __('messages.addProduct') }}</a>
+                                </li>
+                                <li><a
+                                        href="{{ route('products.index') }}">{{ __('messages.allProduct') }}</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
