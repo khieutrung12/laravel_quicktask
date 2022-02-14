@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +12,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/lang/{locale}', 'LanguageController@switchLanguage')->name('lang');
 
 Route::get('/', 'AdminController@index');
 Route::resource('/products', 'ProductController');
